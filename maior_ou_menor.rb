@@ -20,5 +20,10 @@ acertou = numero_secreto == chute.to_i
 if acertou
     puts "Acertou!"
 else
-    puts "Errou!"
+    maior = numero_secreto > chute.to_i
+    if maior
+        puts "O número secreto é maior!"
+    else 
+        puts "O número secreto é menor!"
+    end
 end
