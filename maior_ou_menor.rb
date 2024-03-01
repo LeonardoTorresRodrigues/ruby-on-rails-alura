@@ -23,6 +23,7 @@ for tentativa in 1..limite_de_tentativas
 
     if acertou
         puts "Acertou!"
+        break
     else
         maior = numero_secreto > chute.to_i
         if maior
