@@ -6,9 +6,27 @@ def da_boas_vindas
     puts "Começaremos o jogo para você, #{nome}"    
 end
 
-def sorteia_numero_secreto
-    puts "Escolhendo um número secreto entre 0 e 200..."
-    sorteado = rand(200)
+def pede_dificuldade
+    puts "Qual o nível de difivuldade que deseja? (1 [fácil], 2, 3, 4 ou 5 [difícil])"
+    dificuldade = gets.to_i
+end
+
+def sorteia_numero_secreto(dificuldade)
+    case dificuldade
+    when 1
+        maximo = 30
+    when 2
+        maximo = 60
+    when 3
+        maximo = 100
+    when 4
+        maximo = 150
+    else
+        maximo = 200
+    end
+    
+    puts "Escolhendo um número secreto entre 0 e #{maximo - 1}..."
+    sorteado = rand(maximo)
     puts "Escolhido... que tal adivinhar hoje nosso número secreto?"
     sorteado
 end
@@ -41,7 +59,8 @@ def verifica_se_acertou(numero_secreto, chute)
 end
 
 da_boas_vindas
-numero_secreto = sorteia_numero_secreto
+dificuldade = pede_dificuldade
+numero_secreto = sorteia_numero_secreto dificuldade
 
 pontos_ate_agora = 1000
 limite_de_tentativas = 5
